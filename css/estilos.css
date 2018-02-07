@@ -60,7 +60,7 @@ img {
     background-image: url('../img/ipad-605420_1920.jpg');
     background-position: center;
     background-size: cover; /* Ajusta la imagnen a lo alto, con "contain" a ancho */
-    background-attachment: fixed; /* Deja la imagen fija según se mueve el navegador */
+    /* background-attachment: fixed; --> Deja la imagen fija según se mueve el navegador */
 
 }
 .col1 {
@@ -154,7 +154,7 @@ header.blanco nav ul li a.activo {color: red;}
     background-image: url('../img/web.jpg');
     background-position: center center;
     background-size: cover;
-    background-attachment: fixed; /* Foto fija en el movil */
+    /* background-attachment: scroll; */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -309,6 +309,11 @@ footer a.activo {
 }
 
 /* Media Queris */
+@media (min-width: 1280px) {
+    .hero, .fondo {
+        background-attachment: fixed; /* Media para resoluciones muy altas, deja la imagen fija*/
+    }
+}
 @media (max-width: 920px) {
     .dcho {
         justify-content: center;
@@ -334,9 +339,6 @@ footer a.activo {
     }
     nav {
         display: none;
-    }
-    .hero {
-        background-attachment: scroll;
     }
     .hero h1 {
         font-size: 36px;
