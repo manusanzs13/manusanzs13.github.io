@@ -36,6 +36,7 @@ img {
     margin: 20px;
     border-radius: 5px;
     background-color: dodgerblue;
+    cursor: pointer;
 }
 .naranja {background-color: rgb(255, 60, 0);}
 .amarillo {background-color: rgb(236, 178, 16);}
@@ -53,7 +54,7 @@ img {
     display: flex;
     flex-wrap: wrap;
 }
-.primera {margin-top: 100px;}
+.primera {margin-top: 120px;}
 .fondo {
     margin: 0;
     padding: 60px 40px;
@@ -105,7 +106,7 @@ img {
 
 /* Cabecera-barra de navegación */
 header {
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100%;
     height: 100px;
@@ -114,10 +115,14 @@ header {
     align-items: center;
     padding: 10px;
     box-shadow: 0px 4px 4px grey;
+    background-color: white;
+    transition: all 300ms;
 }
 header.blanco {
     box-shadow: initial;
+    background-color: initial;
 }
+/* Menú hamburguesa de inicio */
 .burger {
     font-size: 34px;
     display: none;
@@ -127,7 +132,115 @@ header.blanco {
 }
 .blanco .burger:hover {
     color: brown;
+    cursor: pointer;
 }
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100vh;
+    display: none;
+    background-color: brown;
+    z-index: 10;
+}
+.cerrar {
+    font-size: 34px;
+    color: white;
+    padding-top: 22px;
+    padding-left: 28px;
+}
+.menu ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+.menu ul a {
+    padding: 10px;
+    width: 100%;
+    color: white;
+}
+.menu ul a:hover {
+    background-color: rgb(245, 84, 84);
+}
+.menu ul a.activo {
+    color: red;
+    background-color: rgb(252, 152, 152);
+}
+.menu p {
+    cursor: pointer;
+}
+/* Menú hamburguesa páginas normales */
+.burger2 {
+    display: none;
+}
+.burger2 .barra {
+    height: 3px;
+    width: 28px;
+    margin: 7px auto;
+    background-color: #3f3f3f;
+}
+.burger2:hover {
+    cursor: pointer;
+}
+.burger2:hover .barra {
+    background-color: brown;
+}
+.arriba, .media, .abajo {
+    transition: all 700ms ease;
+}
+.burger2.abierto .arriba{
+    transform: translateY(10px) rotateZ(45deg);
+}
+.burger2.abierto .media{
+    width: 0;
+}
+.burger2.abierto .abajo{
+    transform: translateY(-10px) rotateZ(-45deg);
+}
+.menu2 {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 80%;
+    height: calc(100vh - 105px); /* Nos coge el 100% del alto menos 100px */
+    background-color: white;
+    z-index: 10;
+    display: none;
+    box-shadow: 0px 4px 4px grey;
+    margin-top: 5px;
+}
+.menu2 ul {
+    display: flex;
+    flex-direction: column;
+}
+.menu2 ul a {
+    width: 100%;
+    padding: 10px 20px;
+    transform: translateX(-200px); 
+}
+.menu2 ul a:nth-child(1) {
+    transition: transform 500ms ease-in-out; /* ease-in-out tipo de animación */
+}
+.menu2 ul a:nth-child(2) {
+    transition: transform 700ms ease-in-out;
+}
+.menu2 ul a:nth-child(3) {
+    transition: transform 900ms ease-in-out;
+}
+.menu2 ul a:nth-child(4) {
+    transition: transform 1100ms ease-in-out;
+}
+.menu2 ul a:nth-child(5) {
+    transition: transform 1300ms ease-in-out;
+}
+.menu2 ul a.aparicion {
+    transform: translateX(0px);
+}
+.menu2 ul a:hover {
+    background-color: rgb(228, 227, 227)
+}
+
 .logo {
     font-size: 60px;
     color:#3f3f3f;
@@ -288,6 +401,132 @@ footer a.activo {
     text-align: center;
 }
 
+/* Estilos para página HTML5 */
+.fila2 {
+    display: flex;
+}
+.tabs-container {
+    flex-basis: 80%; /* Medida de referencia */
+    flex-grow: 1; /* Crecer todo lo que pueda en la proporción indicada */
+    position: relative;
+}
+.tabs {
+    list-style: none;
+    display: flex;
+}
+.tabs li {
+    color: brown;
+    padding: 10px;
+    cursor: pointer;
+    height: 45px;
+}
+.tabs li.current {
+    border-radius: 10px 10px 0 0;
+    background-color: #ededed;
+    border-top: solid 1px brown;
+    border-left: solid 1px brown;
+    border-right: solid 1px brown;
+}
+.tab-content {
+    position: relative;
+    top: -1px;
+    z-index: -1;
+    display: none;
+    background-color: #ededed;
+    border: solid 1px brown;
+    padding: 15px;
+    height: 300px;   
+}
+.tab-content.current {
+    display: block;
+}
+.menu3 {
+    width: 20%;
+    display: none;
+}
+.menu3 ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin-top: 45px;
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.menu3 ul::-webkit-scrollbar {
+    width: 10px;
+}
+.menu3 ul::-webkit-scrollbar-track {
+    background-color: #ededed;
+}
+.menu3 ul::-webkit-scrollbar-thumb {
+    background-color: brown;
+}
+.menu3 ul a {
+    padding: 10px;
+    width: 100%;
+}
+.menu3 ul a:hover {
+    background-color: brown;
+    color: white;
+}
+.btn-side {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 45px;
+    background-color: brown;
+    color: white;
+    border-radius: 10px 0 0 0;
+    width: 65px;
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.fa-arrow-circle-right {
+    display: none;
+}
+
+/* Estilos para página JavaScript */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    z-index: -1;
+}
+.overlay.visible {
+    opacity: 1;
+    z-index: 9;
+}
+.modal {
+    position: fixed; /* Respecto al viewport (dispotivo, pantalla) */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+    background-color: white;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 10;
+    transition: all 500ms ease;
+}
+.modal.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.modal-header {
+    font-size: 30px;
+    padding: 5px;
+    color: rgb(255, 60, 0);
+}
+
 /* Estilos para contacto */
 .direccion {
     line-height: 2em;
@@ -334,7 +573,7 @@ footer a.activo {
 }
 
 @media (max-width: 640px) {
-    .burger {
+    .burger, .burger2 {
         display: initial;
     }
     nav {
@@ -367,7 +606,7 @@ footer a.activo {
         margin: 20px 10px 20px;
     }
     .fila.primera {
-        margin: 100px 10px 20px;
+        margin: 120px 10px 20px;
     }
     .miniform input {
         font-size: 20px;

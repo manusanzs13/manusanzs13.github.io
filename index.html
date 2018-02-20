@@ -7,6 +7,8 @@
     <title>Inicio</title>
     <link rel="stylesheet" href="./css/estilos.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="./js/librerias/jquery-3.3.1.js"></script>
+    <script src="./js/main.js"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -15,16 +17,28 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 </head>
-<body>
+<body id="top">
     <header class="blanco">
         <!-- Indice de hamburguesa -->
         <p class="burger">&#9776;</p>
-        <a href="/" class="logo"> <!-- La barra indica página principal o de inicio -->
+        <!-- Menú de la hamburguesa -->
+        <div class="menu">
+            <!-- Botón de cierre -->
+            <p class="cerrar">&#x2715;</p>
+            <ul>
+                <a href="index.html" class="activo">Inicio</a>
+                <a href="html5.html">HTML5</a>
+                <a href="css3.html">CSS3</a>
+                <a href="javascript.html">JavaScript</a>
+                <a href="contacto.html">Contacto</a>
+            </ul>
+        </div>
+        <a href="index.html" class="logo"> <!-- La barra indica página principal o de inicio -->
             <i class="fas fa-laptop"></i>
         </a>
         <nav>
             <ul>
-                <li> <a href="/" class="activo">Inicio</a> </li>
+                <li> <a href="index.html" class="activo">Inicio</a> </li>
                 <li> <a href="html5.html">HTML5</a> </li>
                 <li> <a href="css3.html">CSS3</a> </li>
                 <li> <a href="javascript.html">JavaScript</a> </li>
@@ -39,7 +53,9 @@
             <i class="fas fa-chevron-circle-down"></i>
         </a>
     </div>
-    <div class="fila" id="primera">
+    <div class="fila">
+        <span id="primera" 
+            style="margin-top: -120px; padding-bottom: 120px; display:block">&nbsp;</span>
         <div class="col3">
             <p>
                 En Web Doc hemos recopilado para ti nuestra amplia experiencia en
@@ -83,7 +99,7 @@
         </form>
     </div>
     <footer>
-        <a class="top" href="#">
+        <a class="top" href="#top">
             <i class="fas fa-chevron-circle-up"></i>
         </a>
         <div class="izdo">
@@ -94,7 +110,7 @@
             <p><i class="far fa-envelope"></i> info@acme.com</p>
         </div>
         <div class="centro">
-            <a href="/" class="activo">Inicio</a>
+            <a href="index.html" class="activo">Inicio</a>
             <a href="html5.html">HTML5</a>
             <a href="css3.html">CSS3</a>
             <a href="javascript.html">JavaScript</a>
